@@ -20,8 +20,10 @@ if [ $option -eq 1 ]; then
     apt update && apt upgrade -y
     export SUDO_FORCE_REMOVE=yes
     apt remove sudo -y
+    docker pull fredblgr/ubuntu-novnc
 clear
     echo -e "${GREEN}Downloading and installation completed!"
+    docker run -p 6080:80 fredblgr/ubuntu-novnc:20.04
     echo -e "${GREEN}Starting Novnc"
 elif [ $option -eq 2 ]; then
     clear
